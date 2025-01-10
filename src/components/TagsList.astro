@@ -1,0 +1,32 @@
+---
+const { frontmatter } = Astro.props;
+---
+<style>
+  .tags {
+    display: flex;
+  }
+
+  .tag {
+    margin-right: 0.5rem;
+    border: 2px solid lightskyblue;
+    color: rgb(60, 139, 170);
+    padding: 2px 8px;
+    border-radius: 30px;
+  }
+
+  .tag a {
+    color: inherit;
+    text-transform: capitalize;
+    text-decoration: none;
+  }
+
+  .tag:hover {
+    background: lightskyblue;
+    color: aliceblue;
+    cursor: pointer;
+  }
+</style>
+
+<div class="tags">
+  {frontmatter.tags.map((tag: string) => (<p class="tag"><a href={`/Astro_Tutorial/tags/${tag}`}>{tag}</a></p>))}
+</div>
